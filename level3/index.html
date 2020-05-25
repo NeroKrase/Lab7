@@ -4,6 +4,7 @@
     <!-- Internal game scripts/styles, mostly boring stuff -->
     <script src="https://xss-game.appspot.com/static/game-frame.js"></script>
     <link rel="stylesheet" href="https://xss-game.appspot.com/static/game-frame-styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.11/purify.js"></script>
  
     <!-- Load jQuery -->
     <script
@@ -15,6 +16,7 @@
         // Dynamically load the appropriate image.
         var html = "Image " + parseInt(num) + "<br>";
         html += "<img src='https://xss-game.appspot.com/static/level3/cloud" + num + ".jpg' />";
+        html = DOMPurify.sanitize(html);
         $('#tabContent').html(html);
  
         window.location.hash = num;
@@ -49,7 +51,7 @@
   <body id="level3">
     <div id="header">
       <img id="logo" src="https://xss-game.appspot.com/static/logos/level3.png">
-      <span>Take a tour of our cloud data center.</a>
+      <span>Take a tour of our cloud data center.</span>></a>
     </div>
  
     <div class="tab" id="tab1" onclick="chooseTab('1')">Image 1</div>
