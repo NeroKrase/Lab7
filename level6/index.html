@@ -18,7 +18,7 @@
       var scriptEl = document.createElement('script');
  
       // This will totally prevent us from loading evil URLs!
-      if (url.match(/^https?:\/\//)) {
+      if (url.match(/^https?:\/\//i)) {
         setInnerText(document.getElementById("log"),
           "Sorry, cannot load a URL containing \"http\".");
         return;
@@ -44,9 +44,10 @@
     function getGadgetName() { 
       return window.location.hash.substr(1) || "/gadget.js";
     }
- 
-    includeGadget(getGadgetName());
- 
+
+    window.addEventListener("onload", () =>{
+      includeGadget(getGadgetName());
+    });
     // Extra code so that we can communicate with the parent page
     window.addEventListener("message", function(event){
       if (event.source == parent) {

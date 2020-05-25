@@ -41,6 +41,12 @@
  
         document.getElementById('post-form').onsubmit = function() {
           var message = document.getElementById('post-content').value;
+          message = message.replace("&", "&amp;")
+          message = message.replace("<", "&lt;")
+          message = message.replace(">", "&gt;")
+          message = message.replace("\"", "&quot;")
+          message = message.replace("'", "&#x27;")
+          message = message.replace("/", "&#x2F;")
           DB.save(message, function() { displayPosts() } );
           document.getElementById('post-content').value = "";
           return false;

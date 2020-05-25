@@ -18,7 +18,7 @@
   <body id="level4">
     <img src="https://xss-game.appspot.com/static/logos/level4.png" />
     <br>
-    <img src="https://xss-game.appspot.com/static/loading.gif" onload="startTimer('{{ timer }}');" />
+    <img src="https://xss-game.appspot.com/static/loading.gif" onload="startTimer(toString('{{ timer }}'));" />
     <br>
     <div id="message">Your timer will execute in {{ timer }} seconds.</div>
   </body>
